@@ -13,7 +13,7 @@ en nuestro host. De esta forma insertamos el siguiente comando:
 
 Para montar el primer contenedor con la imagen de Postgres, primero lo enlazaremos al volumen “postgresqldata”. Segundo, le pondremos los datos del usuario y contraseña para acceder al gestor y por último, conectaremos nuestro puerto 5432 al puerto 5432 que es el que utiliza Postgres por defecto.
 
-      docker run -d -v postgresqldata:/data/db -e POSTGRES_PASSWORD=postgres --name contenedor_postgres -p 5432:5432            postgres
+      docker run -d -v postgresqldata:/data/db -e POSTGRES_PASSWORD=postgres --name contenedor_postgres -p 5432:5432    postgres
  
 Enviamos el contenedor al background con CTRL + L o simplemente abrimos otra terminal y ejecutamos: 
 
@@ -22,7 +22,7 @@ Enviamos el contenedor al background con CTRL + L o simplemente abrimos otra ter
 Una vez dentro ejecutamos: 
 
        psql -h localhost -U postgres
-        postgres=#
+       postgres=#
   
   
 #### Contenedor PGadmin:
