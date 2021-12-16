@@ -34,6 +34,10 @@ Ahora vamos a proceder a montar un contenedor con PgAdmin, reutilizaremos el com
     “PGADMIN_DEFAULT_PASSWORD= admin” -p 5050:80 -d dpage/pgadmin4
 
 Una vez tengamos los dos contenedores funcionando, antes de vincularlos en una misma red docker, si nos dirigimos a nuestro navegador he introducimos “http://localhost:5050/login”. Veremos que se nos abrirá la página inicial de PgAdmin4. Debemos introducir el puerto 5050 porque es el que bindeamos con el puerto 80 del contenedor.
+El usuario y contraseña es el de los comandos anteriores:
+
+![imagen](https://user-images.githubusercontent.com/80277545/146464077-886cbd24-efb8-4a23-9afa-bd418dedb124.png)
+
 
 
 #### MONTANDO LA RED DE DOCKER:
@@ -49,5 +53,24 @@ Ahora tendremos que conectar los contenedores a la red con:
     ·   docker network connect red_postgres contenedor_postgres
 
 
+#### MONTAR EL SERVER DE POSTGRES EN PGADMIN:
+
+Debido a que establecimos la conexión entre ambos contenedores, ahora vamos a
+configurar un nuevo servidor en PgAdmin:
+
 ![imagen](https://user-images.githubusercontent.com/80277545/146463640-ad2495dc-d409-428c-b347-429ca86adc19.png)
-![Captura de pantalla 2021-12-17 002555](https://user-images.githubusercontent.com/80277545/146463694-c6e60e8b-2d20-41d9-89d7-26c4762a0de2.png)
+
+![Captura de pantalla 2021-12-17 002658](https://user-images.githubusercontent.com/80277545/146463850-431368ae-9d5a-45bf-8694-787f9d37aa14.png)
+
+_Maintenance database: postgres
+_Username: postgres
+_Password: postgres 
+_Name: Postgres 
+
+Guardamos. 
+
+Pulsamos en “Save” y con esto estaría concluido la instalación de Postgres y PgAdmin4 mediante Docker:
+![imagen](https://user-images.githubusercontent.com/80277545/146463999-878e0f28-a854-4c92-8d4d-8736274073cb.png)
+
+
+Dudas: ipopdue24@gmail.com
