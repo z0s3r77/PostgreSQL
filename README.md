@@ -1,10 +1,10 @@
 # PostgreSQL
 
-A continuación, se mostrará como se crean dos contenedores en Docker. Uno con PostgreSQL y otro con PGadmin, que es la interfaz grafica para tratar con PostgreSQL. 
+A continuación, se mostrará como se crean dos contenedores en Docker. Uno con PostgreSQL y otro con PGadmin, que es la interfaz gráfica para tratar con PostgreSQL. 
 
 #### Volumen:
 
-Una vez instalado docker, crearemos un volumen para hacer persistir los datos de las bases
+Una vez instalado Docker, crearemos un volumen para hacer persistir los datos de las bases
 en nuestro host. De esta forma insertamos el siguiente comando:
 
      docker volume create postgresqldata
@@ -42,7 +42,7 @@ El usuario y contraseña es el de los comandos anteriores:
 
 #### MONTANDO LA RED DE DOCKER:
 
-Para que los dos contenedores puedan establecer una conexión deben estar en la mismared, de lo contrario, al intentar introducir las credenciales en nuestro pgadmin, nos dirá que no encuentra el host. Llegados a este punto debemos introducir el siguiente comando:
+Para que los dos contenedores puedan establecer una conexión deben estar en la misma red, de lo contrario, al intentar introducir las credenciales en nuestro pgadmin, nos dirá que no encuentra el host. Llegados a este punto debemos introducir el siguiente comando:
 
        docker network create --driver bridge red_postgres
        docker network ls
