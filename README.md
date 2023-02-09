@@ -8,7 +8,7 @@ Una vez instalado Docker, crearemos un volumen para hacer persistir los datos de
 en nuestro host. De esta forma insertamos el siguiente comando:
 ```
      docker volume create postgresqldata
-
+```
 
 #### Contenedor PostgreSQL:
 
