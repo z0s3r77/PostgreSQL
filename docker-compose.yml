@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: contenedor_postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgresqldata:/data/db
+    ports:
+      - "5432:5432"
+    networks:
+      - red_postgres
+
+  pgadmin:
+    container_name: contenedor_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: SuperSecret
+    ports:
+      - "2345:80"
+    networks:
+      - red_postgres
+
+volumes:
+  postgresqldata:
+
+networks:
+  red_postgres:
+    driver: bridge
