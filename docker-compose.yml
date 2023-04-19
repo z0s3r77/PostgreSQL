@@ -5,10 +5,10 @@ services:
     container_name: contenedor_postgres
     image: postgres
     restart: always
+    volumes:
+      - postgres2:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
-    volumes:
-      - postgresqldata:/var/lib/postgresql
     ports:
       - "5432:5432"
     networks:
@@ -26,8 +26,20 @@ services:
     networks:
       - red_postgres
 
+  ubuntuhack:
+    container_name: ubuntu_hack
+    image: ubuntu
+    networks:
+      - red_postgres
+    volumes:
+      - nuevovol:/home
+    restart: always
+    command: ["sleep","infinity"]
+
+
 volumes:
-  postgresqldata:
+  nuevovol:
+  postgres2:
 
 networks:
   red_postgres:
